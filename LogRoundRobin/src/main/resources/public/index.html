@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Llamadas Asíncronas a Spark</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<h1>Cliente</h1>
+
+
+
+
+<h2>Traer</h2>
+<form action="/log">
+
+
+
+    <Label for="name">Name: </Label><br>
+
+
+
+    <input type="text" id="message" name="message" value="Mensaje"><br><br>
+
+
+
+    <input type="button" value="Submit" onclick="loadGetMsg()">
+
+
+
+</form>
+
+
+
+
+<div id= "getrespmsg"></div>
+
+
+
+<script>
+
+
+
+                function LoadGetMsg(){
+                Let message = document. getElementById("message").value;
+                const xhttp = new XMLHttpRequest;
+                xhttp.onload = function) f
+                document. getElementById ("getrespmsg"). innerHTML =
+                this. responsetext;
+                }
+                xhttp. open ("GET", "/log?value="+message);
+                Xhttp. send(;
+
+
+
+                ｝
+            </script>
+</body>
+</html>
