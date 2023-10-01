@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Llamadas Asíncronas a Spark</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta charset=\"UTF-8\">
+    <title>Index</title>
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
 </head>
 <body>
-<h1>Cliente</h1>
-
-
-
-
-<h2>Traer</h2>
+<h1> FUNCTION FORMS </h1>
 <form action="/log">
 
 
 
-    <Label for="name">Name: </Label><br>
+    <label for="message">Introduzca una cadena: </label><br>
 
 
 
@@ -37,22 +33,16 @@
 
 
 <script>
-
-
-
-                function LoadGetMsg(){
-                Let message = document. getElementById("message").value;
-                const xhttp = new XMLHttpRequest;
-                xhttp.onload = function) f
-                document. getElementById ("getrespmsg"). innerHTML =
-                this. responsetext;
-                }
-                xhttp. open ("GET", "/log?value="+message);
-                Xhttp. send(;
-
-
-
-                ｝
-            </script>
+function loadGetMsg(){
+let message = document.getElementById("message").value;
+const xhttp = new XMLHttpRequest();
+xhttp.onload = function(){
+document.getElementById("getrespmsg").innerHTML =
+this.responseText;
+}
+xhttp.open("GET", "/log?message="+message);
+xhttp.send();
+}
+</script>
 </body>
 </html>

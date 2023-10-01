@@ -9,26 +9,32 @@ import java.net.URL;
 public class HttpRemoteCaller {
 
     private static final String USER_AGENT = "Mozilla/5.0";
-    private static final String[] LOG_SERVICES = new String[]{"http://localhost:4568",
-            "http://localhost:4569",
-            "http://localhost:4570"};
+    private static final String[] LOG_SERVICES = new String[]{"http://localhost:4568/logservice",
+            "http://localhost:4569/logservice",
+            "http://localhost:4570/logservice"};//
 
     private static int currentServer = 0;
 
     public static String remoteLogCall(String message) throws IOException {
-        return remoteHttpCall(LOG_SERVICES[currentServer] + "/logservice?message=" + message);
+        //rotateRoundRobinServer();//
+        return remoteHttpCall(LOG_SERVICES[currentServer], message);
     }
-    public static String remoteHttpCall(String url) throws IOException {
+    public static String remoteHttpCall(String url, String message) throws IOException {
 
-        URL obj = new URL(url);
+        URL obj = new URL(url+"?message="+message);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         con.setRequestMethod("GET");
         con.setRequestProperty("User-Agent", USER_AGENT);
+
+        /*String urlParameters = "value=" + message;
+        con.setDoOutput(true);
+        con.getOutputStream().write(urlParameters.getBytes("UTF-8"));*/
 
         //The following invocation perform the connection implicitly before getting the code
         int responseCode = con.getResponseCode();
         System.out.println("GET Response Code :: " + responseCode);
         StringBuffer response = new StringBuffer();
+        System.out.println("HOLAA" + responseCode);
 
         if (responseCode == HttpURLConnection.HTTP_OK) { // success
             BufferedReader in = new BufferedReader(new InputStreamReader(
@@ -47,7 +53,8 @@ public class HttpRemoteCaller {
             return "404 error";
         }
         System.out.println("GET DONE");
-        rotateRoundRobinServer();
+        //rotateRoundRobinServer();//
+        System.out.println("RESPUESTA" + response.toString());
         return response.toString();
     }
 

@@ -1,10 +1,27 @@
 package co.edu.escuelaing.logservice;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 import static spark.Spark.*;
+import com.google.gson.Gson;
+import com.mongodb.BasicDBObject;
+import com.mongodb.ConnectionString;
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Sorts;
+import org.bson.Document;
 
 public class LogService {
+
+    private static final String MONGODB_HOST = "127.0.0.1"; // Cambia esto con la dirección IP o nombre de host de tu instancia de MongoDB
+    private static final int MONGODB_PORT = 27017; // Cambia esto si el puerto de MongoDB es diferente
+    private static final String DATABASE_NAME = "bd";
+    private static final String COLLECTION_NAME = "coleccion";
 
 
 
@@ -12,12 +29,28 @@ public class LogService {
         System.out.println("Log Service Server");
         port(getPort());
 
+        /*ConnectionString connectionString = new ConnectionString("mongodb://" + MONGODB_HOST + ":" + MONGODB_PORT);
+        System.out.println("EXITOSO");
+
+        MongoClient mongoClient = MongoClients.create(connectionString);
+        MongoDatabase database = mongoClient.getDatabase(DATABASE_NAME);
+        MongoCollection<Document> collection = database.getCollection(COLLECTION_NAME);
+        System.out.println("exitoso2");*/
+
 
 
 
         get("/logservice", (req, pesp) -> {
-            String val = req.queryParams("value");
-            return logMessage(val);
+            String val = req.queryParams("message");
+            System.out.println("SERVICIOOOO" + val);
+            //return logMessage(collection, val);
+            return """
+               {
+               "m1":"mensaj1",
+               "m2":"mensaj1",
+               "m3":"mensaj1",
+                }
+                """;
         });
 
 
@@ -36,13 +69,23 @@ public class LogService {
 
 
 
-    private static String logMessage(String val) {
-        return """
-               {
-               "m1":"mensaj1",
-               "m2":"mensaj1",
-               "m3":"mensaj1",
-                }
-                """;
+    private static String logMessage(MongoCollection<Document> collection, String val) {
+        // Almacena el mensaje en MongoDB
+        Document logEntry = new Document()
+                .append("message", val)
+                .append("timestamp", new Date());
+
+        collection.insertOne(logEntry);
+
+        // Recupera las últimas 10 entradas de registro ordenadas por timestamp descendente
+        List<Document> recentLogEntries = collection.find()
+                .sort(Sorts.descending("timestamp"))
+                .limit(10)
+                .into(new ArrayList<>());
+
+        // Convierte las entradas de registro a formato JSON
+        String jsonResponse = recentLogEntries.toString();
+
+        return jsonResponse;
     }
 }
