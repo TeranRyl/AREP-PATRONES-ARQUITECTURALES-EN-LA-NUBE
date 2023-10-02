@@ -26,7 +26,7 @@ public class HttpRemoteCaller {
         con.setRequestMethod("GET");
         con.setRequestProperty("User-Agent", USER_AGENT);
 
-        /*String urlParameters = "value=" + message;
+        /*String urlParameters = "message=" + message;
         con.setDoOutput(true);
         con.getOutputStream().write(urlParameters.getBytes("UTF-8"));*/
 
@@ -53,7 +53,7 @@ public class HttpRemoteCaller {
             return "404 error";
         }
         System.out.println("GET DONE");
-        //rotateRoundRobinServer();//
+        rotateRoundRobinServer();//
         System.out.println("RESPUESTA" + response.toString());
         return response.toString();
     }

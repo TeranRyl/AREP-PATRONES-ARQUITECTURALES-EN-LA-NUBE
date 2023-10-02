@@ -7,12 +7,10 @@ import java.util.List;
 
 import static spark.Spark.*;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.mongodb.BasicDBObject;
 import com.mongodb.ConnectionString;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.*;
 import com.mongodb.client.model.Sorts;
 import org.bson.Document;
 
@@ -29,13 +27,13 @@ public class LogService {
         System.out.println("Log Service Server");
         port(getPort());
 
-        /*ConnectionString connectionString = new ConnectionString("mongodb://" + MONGODB_HOST + ":" + MONGODB_PORT);
+        ConnectionString connectionString = new ConnectionString("mongodb://" + MONGODB_HOST + ":" + MONGODB_PORT);
         System.out.println("EXITOSO");
 
         MongoClient mongoClient = MongoClients.create(connectionString);
         MongoDatabase database = mongoClient.getDatabase(DATABASE_NAME);
         MongoCollection<Document> collection = database.getCollection(COLLECTION_NAME);
-        System.out.println("exitoso2");*/
+        System.out.println("exitoso2");
 
 
 
@@ -43,14 +41,14 @@ public class LogService {
         get("/logservice", (req, pesp) -> {
             String val = req.queryParams("message");
             System.out.println("SERVICIOOOO" + val);
-            //return logMessage(collection, val);
-            return """
+            return logMessage(collection, val);
+            /*return """
                {
                "m1":"mensaj1",
                "m2":"mensaj1",
                "m3":"mensaj1",
                 }
-                """;
+                """;*/
         });
 
 
@@ -78,14 +76,24 @@ public class LogService {
         collection.insertOne(logEntry);
 
         // Recupera las últimas 10 entradas de registro ordenadas por timestamp descendente
-        List<Document> recentLogEntries = collection.find()
+        FindIterable<Document> recentLogEntries = collection.find()
                 .sort(Sorts.descending("timestamp"))
-                .limit(10)
-                .into(new ArrayList<>());
+                .limit(10);
 
-        // Convierte las entradas de registro a formato JSON
-        String jsonResponse = recentLogEntries.toString();
+        // Construye una respuesta JSON en el formato especificado
+        JsonObject jsonResponse = new JsonObject();
 
-        return jsonResponse;
+        int index = 1;
+        for (Document entry : recentLogEntries) {
+            String messageKey = "m" + index;
+            String messageValue = entry.getString("message");
+            jsonResponse.addProperty(messageKey, messageValue);
+            index++;
+        }
+
+        // Convierte el objeto JSON en una cadena
+        String jsonResult = jsonResponse.toString();
+
+        return jsonResult;
     }
 }
