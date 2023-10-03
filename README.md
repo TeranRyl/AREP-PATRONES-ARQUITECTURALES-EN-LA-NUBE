@@ -69,7 +69,6 @@ Cliente web desde Docker:
 ![image](https://github.com/TeranRyl/AREP-PATRONES-ARQUITECTURALES-EN-LA-NUBE/assets/81679109/a0cb740e-8172-48c8-a2ca-d4e489294c9a)
 
 
-
 Servicio GET 1 desde Docker:
 
 ![image](https://github.com/TeranRyl/AREP-PATRONES-ARQUITECTURALES-EN-LA-NUBE/assets/81679109/a8116bf4-8dbb-442a-8caa-3ce2cafa6cf2)
@@ -85,24 +84,15 @@ Servicio GET 3 desde Docker:
 ![image](https://github.com/TeranRyl/AREP-PATRONES-ARQUITECTURALES-EN-LA-NUBE/assets/81679109/4dfc452a-cb67-4398-9c92-bb878e665704)
 
 
-
 Cliente web (RoundRobin) llamando a un servicio (LogServiceX) desde Docker:
 
 ![image](https://github.com/TeranRyl/AREP-PATRONES-ARQUITECTURALES-EN-LA-NUBE/assets/81679109/058dbb4e-7be3-49f0-9015-b1a17043d36b)
 
 
+
 Prueba de demostracion de despliegue de la aplicacion web realizada utilizando EC2 (AWS):
 
 https://youtu.be/TLYuKQVJj7A
-
-
-
-
-
-
-
-
-
 
 
 ## Implementacion
