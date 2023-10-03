@@ -50,6 +50,23 @@ Paso a paso
 
 7. Desde el Shell, escriba "docker-compose up -d" para generar automáticamente la configuración Docker, los containers, instancias e imaegenes necesarias para desplegarlo utilizando Docker.
 
+Deberia tener lo siguiente en su Docker.
+
+Contenedores:
+
+![image](https://github.com/TeranRyl/AREP-PATRONES-ARQUITECTURALES-EN-LA-NUBE/assets/81679109/9a8499a4-f920-41a0-832b-2f7df5337748)
+
+Imagenes:
+
+![image](https://github.com/TeranRyl/AREP-PATRONES-ARQUITECTURALES-EN-LA-NUBE/assets/81679109/518fa9e7-8eb5-47b7-a5c1-688b2942c819)
+
+Volumenes:
+
+![image](https://github.com/TeranRyl/AREP-PATRONES-ARQUITECTURALES-EN-LA-NUBE/assets/81679109/dab963a1-5b3a-4ef2-9df0-48fc537e7d05)
+
+
+
+
 8. Abra su explorador web de preferencia y busque en una pestaña incognita lo siguiente:
    
    - "localhost:35000" (SIN LAS COMILLAS) - Cliente web (RoundRobin).
@@ -128,6 +145,26 @@ Esta arquitectura permite escalar el sistema agregando más instancias de `LogSe
 
 
 ### Diagrama de clases
+
+
+
+### DockerHub
+
+![image](https://github.com/TeranRyl/AREP-PATRONES-ARQUITECTURALES-EN-LA-NUBE/assets/81679109/5ecbd9ac-2b9f-4ec8-bf73-72ce943ad5c4)
+
+
+
+### AWS
+
+![image](https://github.com/TeranRyl/AREP-PATRONES-ARQUITECTURALES-EN-LA-NUBE/assets/81679109/9267475b-e0ba-4f2c-bfc6-4dae8ca5ffbe)
+
+![image](https://github.com/TeranRyl/AREP-PATRONES-ARQUITECTURALES-EN-LA-NUBE/assets/81679109/4194009b-42f3-4d5c-bcfc-c1529a083b17)
+
+![image](https://github.com/TeranRyl/AREP-PATRONES-ARQUITECTURALES-EN-LA-NUBE/assets/81679109/0c5f86f9-17ef-46cb-9f70-2e3009674ff3)
+
+![image](https://github.com/TeranRyl/AREP-PATRONES-ARQUITECTURALES-EN-LA-NUBE/assets/81679109/5d63ac9d-24f8-47ea-8b8c-9df0b582db63)
+
+
 
 
 ## Construido con
