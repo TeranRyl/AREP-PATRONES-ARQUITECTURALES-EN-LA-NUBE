@@ -171,7 +171,8 @@ Resumen de informacion de la instancia:
 
 Grupo de seguridad de la instancia (reglas de acceso a sus puertos)
 
-![image](https://github.com/TeranRyl/AREP-PATRONES-ARQUITECTURALES-EN-LA-NUBE/assets/81679109/5d63ac9d-24f8-47ea-8b8c-9df0b582db63)
+![image](https://github.com/TeranRyl/AREP-PATRONES-ARQUITECTURALES-EN-LA-NUBE/assets/81679109/988de2e6-ca37-49d6-9304-320b45bcfc2e)
+
 
 
 
