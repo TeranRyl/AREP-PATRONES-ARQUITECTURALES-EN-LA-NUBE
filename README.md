@@ -1,6 +1,5 @@
-# ARQUITECTURAS DE SERVIDORES DE APLICACIONES, META PROTOCOLOS DE OBJETOS, PATRÓN IOC, REFLEXIÓN
-
-Un servidor web que provee un framework IoC el cual permite la construccion de aplicaciones web a partir de un POJO (bean) utilizando reflexion de Java. Se construye un ejemplo de una app que es capaz de entregar paginas HTML e imagenes PNG. El servidor atiende multiples solicitudes no concurrentes.
+# PATRONES ARQUITECTURALES
+Una aplicacion web desplegada en AWS usando EC2 y Docker
 
 ## Instrucciones para ejecutar
 
@@ -21,6 +20,8 @@ Para descargar la aplicacion, ya estando aqui, se necesita un equipo de computo 
 
 - Explorador web
 
+- Docker 4.19+
+
 - (RECOMENDACION) Tener todo actualizado
 ```
 
@@ -35,21 +36,21 @@ Paso a paso
 
 3. Abrir el Shell de su preferencia.
 
-4. Desde el Shell, muevase a la ubicacion donde extrajo el archivo .ZIP (Deberia estar dentro de la carpeta llamada  "ARQUITECTURAS-EMPRESARIALES-TALLER-4-master").
+4. Desde el Shell, muevase a la ubicacion donde extrajo el archivo .ZIP (Deberia estar dentro de la carpeta llamada  "AREP-PATRONES-ARQUITECTURALES-EN-LA-NUBE-master").
 
-5. Desde el Shell, escriba "mvn package" (este comando compila, construye y empaqueta el proyecto en un .JAR).
+5. Desde el Shell, escriba "mvn clean install" (este comando compila el proyecto y coloca el artefacto resultante en tu repositorio local de Maven).
 
-6. Desde el Shell, escriba "java -cp target/Taller4-1.0-SNAPSHOT.jar edu.escuelaing.app.MyApp" para ejecutar la aplicacion.
-   Deberia ver un mensaje diciendo "Listo para recibir... ".
+6. Inicie Docker.
 
-7. Abra su explorador web de preferencia y busque en una pestaña incognita lo siguiente:
+7. Desde el Shell, escriba "docker-compose up -dp" para generar automáticamente la configuración Docker, los containers e instancias necesarios.
+
+8. Abra su explorador web de preferencia y busque en una pestaña incognita lo siguiente:
    
-   - "localhost:35001/terminos.html" (SIN LAS COMILLAS) - Pagina html con ruta "src/main/resources/terminos.html".
-   - "localhost:35001/style.css" (SIN LAS COMILLAS) - Archivo css con ruta "src/main/resources/style.css".
-   - "localhost:35001/app.js" (SIN LAS COMILLAS) - Archivo javascript con ruta "src/main/resources/app.js".
-   - "localhost:35001/risas.png" (SIN LAS COMILLAS) - Imagen jpg con ruta "src/main/resources/risas.png".
-   - "localhost:35001/web/index.html" (SIN LAS COMILLAS) - Aplicacion con varios tipos de archivos 
-      incluidos.
+   - "localhost:35000" (SIN LAS COMILLAS) - Cliente web (RoundRobin).
+   - "localhost:35001/logservice=message=*MENSAJE_DE_PRUEBA*" (SIN LAS COMILLAS) - .
+   - "localhost:35002/logservice=message=*MENSAJE_DE_PRUEBA*" (SIN LAS COMILLAS) - .
+   - "localhost:35003/logservice=message=*MENSAJE_DE_PRUEBA*" (SIN LAS COMILLAS) - .
+   - "localhost:35001/logservice=message=*MENSAJE_DE_PRUEBA*" (SIN LAS COMILLAS) - 
 
 NOTA: Para abortar el shell con el servidor encendido, podemos presionar "CTRL" + "C".
 ```
@@ -121,6 +122,7 @@ Se hace uso del patron de diseño SINGLETON, para instanciar por unica vez "Http
 * [Maven](https://maven.apache.org/) - Gestion de ciclo de vida, codigo fuente y dependencias
 * [Git/Github](https://git-scm.com/) - Almacenar el codigo fuente
 * [IntelliJ IDEA](https://www.jetbrains.com/idea/) - IDE para desarrollo
+* [Docker](https://www.docker.com/) - Virtualizacion
 
 ## Autores
 
@@ -133,5 +135,5 @@ Este proyecto tiene la licencia GNU General Public License v3.0; consulte el arc
 ## Reconocimientos
 
 * PurpleBooth - Plantilla para hacer un buen README
-* Luis Daniel Benavides - Preparacion para el taller e introduccion al diseño de sistemas de informacion
+* Luis Daniel Benavides - Preparacion para el taller e introduccion al tema
 
