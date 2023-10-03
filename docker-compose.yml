@@ -1,0 +1,44 @@
+version: '2'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfilee
+    container_name: web
+    ports:
+      - "35000:6000"
+    networks:
+      - my_network
+
+  web1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: web1
+    ports:
+      - "35001:6000"
+    networks:
+      - my_network
+
+  web2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: web2
+    ports:
+      - "35002:6000"
+    networks:
+      - my_network
+  web3:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: web3
+    ports:
+      - "35003:6000"
+    networks:
+      - my_network
+
+networks:
+  my_network:

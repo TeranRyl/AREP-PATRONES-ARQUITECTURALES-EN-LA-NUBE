@@ -1,4 +1,4 @@
-package co.edu.escuelaing.logroundrobin;
+package co.edu.escuelaing;
 
 import java.io.IOException;
 

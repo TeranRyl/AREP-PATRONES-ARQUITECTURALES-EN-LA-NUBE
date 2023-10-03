@@ -1,4 +1,4 @@
-package co.edu.escuelaing.logroundrobin;
+package co.edu.escuelaing;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,9 +9,9 @@ import java.net.URL;
 public class HttpRemoteCaller {
 
     private static final String USER_AGENT = "Mozilla/5.0";
-    private static final String[] LOG_SERVICES = new String[]{"http://localhost:4568/logservice",
-            "http://localhost:4569/logservice",
-            "http://localhost:4570/logservice"};//
+    private static final String[] LOG_SERVICES = new String[]{"http://web1:6000/logservice",
+            "http://web2:6000/logservice",
+            "http://web3:6000/logservice"};//
 
     private static int currentServer = 0;
 
@@ -22,11 +22,14 @@ public class HttpRemoteCaller {
     public static String remoteHttpCall(String url, String message) throws IOException {
 
         URL obj = new URL(url+"?message="+message);
+        System.out.println("OBJETO" + obj);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         con.setRequestMethod("GET");
         con.setRequestProperty("User-Agent", USER_AGENT);
 
-        /*String urlParameters = "message=" + message;
+        //con.connect();
+
+       /* String urlParameters = "message=" + message;
         con.setDoOutput(true);
         con.getOutputStream().write(urlParameters.getBytes("UTF-8"));*/
 
