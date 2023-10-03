@@ -19,7 +19,6 @@ public class LogRoundRobin {
 
         get("/log", (req, pesp) -> {
             String val = req.queryParams("message");
-            System.out.println("VALOR" + val);
             return logMessage(val);
         });
 

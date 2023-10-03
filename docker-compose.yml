@@ -39,6 +39,21 @@ services:
       - "35003:6000"
     networks:
       - my_network
+  db:
+    image: mongo:3.6.1
+    container_name: db
+    volumes:
+      - mongodb:/data/db
+      - mongodb_config:/data/configdb
+    ports:
+      - 27017:27017
+    command: mongod
+    networks:
+      - my_network
+
+volumes:
+  mongodb:
+  mongodb_config:
 
 networks:
   my_network:
