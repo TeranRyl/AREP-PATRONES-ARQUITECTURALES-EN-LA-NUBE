@@ -120,18 +120,14 @@ El proyecto que has proporcionado consta de varias partes que trabajan juntas pa
    - Se proporciona una página HTML simple que contiene un formulario para que el usuario ingrese un mensaje.
    - Cuando el usuario hace clic en el botón "Submit", se ejecuta una función JavaScript que utiliza XMLHttpRequest para enviar el mensaje al servidor web principal (`LogRoundRobin`) a través de la ruta `/log`.
 
-En resumen, cuando un usuario ingresa un mensaje en la página HTML y hace clic en "Submit", el cliente web envía una solicitud GET al servidor `LogRoundRobin` a través de la ruta `/log`. El servidor `LogRoundRobin` utiliza la clase `HttpRemoteCaller` para redirigir la solicitud a uno de los servidores de registro (`LogService`) disponibles en un enfoque de equilibrio de carga de Round Robin. El servidor `LogService` registra el mensaje en una base de datos MongoDB y devuelve los últimos 10 mensajes registrados en formato JSON como respuesta.
+Por lo tanto, cuando un usuario ingresa un mensaje en la página HTML y hace clic en "Submit", el cliente web envía una solicitud GET al servidor `LogRoundRobin` a través de la ruta `/log`. El servidor `LogRoundRobin` utiliza la clase `HttpRemoteCaller` para redirigir la solicitud a uno de los servidores de registro (`LogService`) disponibles en un enfoque de equilibrio de carga de Round Robin. El servidor `LogService` registra el mensaje en una base de datos MongoDB y devuelve los últimos 10 mensajes registrados en formato JSON como respuesta.
 
 Esta arquitectura permite escalar el sistema agregando más instancias de `LogService` y distribuyendo la carga de manera uniforme entre ellas para manejar un alto volumen de solicitudes de registro. Además, se proporciona una interfaz de usuario simple para interactuar con el sistema.
 
+![image](https://github.com/TeranRyl/AREP-PATRONES-ARQUITECTURALES-EN-LA-NUBE/assets/81679109/69bfae90-7121-447f-92a9-c22292062cdf)
 
-NOTA 2
 
-El explorador pide y ejecuta lo que el servidor web le envie, y luego el servidor devuelve el resultado (paginas html, archivos css y js e imagenes jpg).
-Para esta conversion, se tiene en cuenta el encabezado del archivo y se devuelve en bytes. Este proceso varia segun el tipo de contenido.
-App permite crear una aplicacion de backend, la cual estara en el servidor web, y funciona como un framework IoC para la construccion aplicaciones, derivando en una webapp a partir de un POJO cargado. Para esto se explora el directorio raiz para buscar aquellas clases marcadas con la anotacion @component (la cual indica que son componentes-beans) y cargarlas, de tal manera que cuando se invoca el framework este sepa el path de las clases que necesita. En el POJO se especifica cual servicio retornar segun la URI que se indique, atendiendo con la anotacion @GetMapping.
-Se hace uso del patron de diseño SINGLETON, para instanciar por unica vez "HttpServer".
-
+### Diagrama de clases
 
 
 ## Construido con
