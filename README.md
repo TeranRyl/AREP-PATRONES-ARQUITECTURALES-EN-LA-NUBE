@@ -85,6 +85,11 @@ Cliente web (RoundRobin) llamando a un servicio (LogServiceX) desde Docker:
 ![image](https://github.com/TeranRyl/AREP-PATRONES-ARQUITECTURALES-EN-LA-NUBE/assets/81679109/058dbb4e-7be3-49f0-9015-b1a17043d36b)
 
 
+Prueba de demostracion de despliegue de la aplicacion web realizada utilizando EC2 (AWS):
+
+https://youtu.be/TLYuKQVJj7A
+
+
 
 
 
