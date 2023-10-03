@@ -156,14 +156,22 @@ Esta arquitectura permite escalar el sistema agregando más instancias de `LogSe
 
 ### AWS
 
+
+Keypair para conexion segura a la instancia:
+
 ![image](https://github.com/TeranRyl/AREP-PATRONES-ARQUITECTURALES-EN-LA-NUBE/assets/81679109/9267475b-e0ba-4f2c-bfc6-4dae8ca5ffbe)
+
+Instancia funcionando:
 
 ![image](https://github.com/TeranRyl/AREP-PATRONES-ARQUITECTURALES-EN-LA-NUBE/assets/81679109/4194009b-42f3-4d5c-bcfc-c1529a083b17)
 
+Resumen de informacion de la instancia:
+
 ![image](https://github.com/TeranRyl/AREP-PATRONES-ARQUITECTURALES-EN-LA-NUBE/assets/81679109/0c5f86f9-17ef-46cb-9f70-2e3009674ff3)
 
-![image](https://github.com/TeranRyl/AREP-PATRONES-ARQUITECTURALES-EN-LA-NUBE/assets/81679109/5d63ac9d-24f8-47ea-8b8c-9df0b582db63)
+Grupo de seguridad de la instancia (reglas de acceso a sus puertos)
 
+![image](https://github.com/TeranRyl/AREP-PATRONES-ARQUITECTURALES-EN-LA-NUBE/assets/81679109/5d63ac9d-24f8-47ea-8b8c-9df0b582db63)
 
 
 
