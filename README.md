@@ -146,6 +146,9 @@ Esta arquitectura permite escalar el sistema agregando más instancias de `LogSe
 
 ### Diagrama de clases
 
+![image](https://github.com/TeranRyl/AREP-PATRONES-ARQUITECTURALES-EN-LA-NUBE/assets/81679109/aa2e832e-f439-4cd9-9290-c080547f2177)
+
+
 
 
 ### DockerHub
