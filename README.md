@@ -10,7 +10,7 @@ A continuacion, dejo respectivas instrucciones para correr el proyecto adecuadam
 Para descargar la aplicacion, ya estando aqui, se necesita un equipo de computo con las siguientes caracteristicas:
 
 ```
-- Java 8+ instalado
+- Java 17 instalado (si cuenta con otra version, probablemente deba hacer la respectiva modificacion en el archivo "pom.xml")
 
 - Maven instalado
 
@@ -42,50 +42,48 @@ Paso a paso
 
 6. Inicie Docker.
 
-7. Desde el Shell, escriba "docker-compose up -dp" para generar automáticamente la configuración Docker, los containers e instancias necesarios.
+7. Desde el Shell, escriba "docker-compose up -d" para generar automáticamente la configuración Docker, los containers e instancias necesarios.
 
 8. Abra su explorador web de preferencia y busque en una pestaña incognita lo siguiente:
    
    - "localhost:35000" (SIN LAS COMILLAS) - Cliente web (RoundRobin).
-   - "localhost:35001/logservice=message=*MENSAJE_DE_PRUEBA*" (SIN LAS COMILLAS) - .
-   - "localhost:35002/logservice=message=*MENSAJE_DE_PRUEBA*" (SIN LAS COMILLAS) - .
-   - "localhost:35003/logservice=message=*MENSAJE_DE_PRUEBA*" (SIN LAS COMILLAS) - .
-   - "localhost:35001/logservice=message=*MENSAJE_DE_PRUEBA*" (SIN LAS COMILLAS) - 
+   - "localhost:35001/logservice?message=*MENSAJE_DE_PRUEBA1*" (SIN LAS COMILLAS) - Servicio GET (LogService1)
+   - "localhost:35002/logservice?message=*MENSAJE_DE_PRUEBA2*" (SIN LAS COMILLAS) - Servicio GET (LogService2)
+   - "localhost:35003/logservice?message=*MENSAJE_DE_PRUEBA3*" (SIN LAS COMILLAS) - Servicio GET (LogService3)
 
-NOTA: Para abortar el shell con el servidor encendido, podemos presionar "CTRL" + "C".
 ```
-
-Una vez haya terminado, puede cerrar el servidor introduciendo, desde el cliente, la URL "localhost:35001/salir.exe" (SIN LAS COMILLAS) y el servidor se apagara enseguida.
-
 
 
 ## Evaluacion
 
 Ejemplo de app web:
 
-Archivo HTML:
+Cliente web desde Docker:
 
-![image](https://github.com/TeranRyl/ARQUITECTURAS-EMPRESARIALES-TALLER-4/assets/81679109/26d18117-6a9d-4b35-b3f8-296f4c70e8f5)
-
-
-Archivo CSS:
-
-![image](https://github.com/TeranRyl/ARQUITECTURAS-EMPRESARIALES-TALLER-4/assets/81679109/1f416977-6a2a-4e81-958f-ac7978a71136)
+![image](https://github.com/TeranRyl/AREP-PATRONES-ARQUITECTURALES-EN-LA-NUBE/assets/81679109/a0cb740e-8172-48c8-a2ca-d4e489294c9a)
 
 
-Archivo JS:
 
-![image](https://github.com/TeranRyl/ARQUITECTURAS-EMPRESARIALES-TALLER-4/assets/81679109/7c0fdbd3-ac39-4a77-abad-bbce4562cf72)
+Servicio GET 1 desde Docker:
 
-
-Imagen PNG:
-
-![image](https://github.com/TeranRyl/ARQUITECTURAS-EMPRESARIALES-TALLER-4/assets/81679109/b38e86a6-a725-4d9d-881a-78b6df1342d5)
+![image](https://github.com/TeranRyl/AREP-PATRONES-ARQUITECTURALES-EN-LA-NUBE/assets/81679109/a8116bf4-8dbb-442a-8caa-3ce2cafa6cf2)
 
 
-Pagina con varios tipos de archivos incluidos:
+Servicio GET 2 desde Docker:
 
-![image](https://github.com/TeranRyl/ARQUITECTURAS-EMPRESARIALES-TALLER-4/assets/81679109/516ab361-97e6-48ae-8226-ee04b495c880)
+![image](https://github.com/TeranRyl/AREP-PATRONES-ARQUITECTURALES-EN-LA-NUBE/assets/81679109/0d3cb346-d1dd-4f1a-a583-b30d4067dda6)
+
+
+Servicio GET 3 desde Docker:
+
+![image](https://github.com/TeranRyl/AREP-PATRONES-ARQUITECTURALES-EN-LA-NUBE/assets/81679109/4dfc452a-cb67-4398-9c92-bb878e665704)
+
+
+
+Cliente web (RoundRobin) llamando a un servicio (LogServiceX) desde Docker:
+
+![image](https://github.com/TeranRyl/AREP-PATRONES-ARQUITECTURALES-EN-LA-NUBE/assets/81679109/058dbb4e-7be3-49f0-9015-b1a17043d36b)
+
 
 
 
