@@ -1,5 +1,9 @@
 # PATRONES ARQUITECTURALES
-Una aplicacion web desplegada en AWS usando EC2 y Docker
+Una aplicacion web desplegada en AWS usando EC2 y Docker:
+
+1. El servicio MongoDB es una instancia de MongoDB corriendo en un container de docker en una máquina virtual de EC2
+2. LogService es un servicio REST que recibe una cadena, la almacena en la base de datos y responde en un objeto JSON con las 10 ultimas cadenas almacenadas en la base de datos y la fecha en que fueron almacenadas.
+3. La aplicación web APP-LB-RoundRobin está compuesta por un cliente web y al menos un servicio REST. El cliente web tiene un campo y un botón y cada vez que el usuario envía un mensaje, este se lo envía al servicio REST y actualiza la pantalla con la información que este le regresa en formato JSON. El servicio REST recibe la cadena e implementa un algoritmo de balanceo de cargas de Round Robin, delegando el procesamiento del mensaje y el retorno de la respuesta a cada una de las tres instancias del servicio LogService.
 
 ## Instrucciones para ejecutar
 
@@ -42,7 +46,7 @@ Paso a paso
 
 6. Inicie Docker.
 
-7. Desde el Shell, escriba "docker-compose up -d" para generar automáticamente la configuración Docker, los containers e instancias necesarios.
+7. Desde el Shell, escriba "docker-compose up -d" para generar automáticamente la configuración Docker, los containers, instancias e imaegenes necesarias para desplegarlo utilizando Docker.
 
 8. Abra su explorador web de preferencia y busque en una pestaña incognita lo siguiente:
    
@@ -56,7 +60,7 @@ Paso a paso
 
 ## Evaluacion
 
-Ejemplo de app web:
+Pruebas de app web funcionando:
 
 Cliente web desde Docker:
 
